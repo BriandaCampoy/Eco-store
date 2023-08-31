@@ -1,0 +1,233 @@
+$primary-color: #ffefe7;
+$secondary-color: #ffdac6;
+$tertiary-color: #babd8d;
+$primary-text-color: #7c6a0a;
+$quaternary-color: #fa9500;
+
+$font-stack: 'IBM Plex Sans', sans-serif;
+$paragraph-size: 1.5em;
+
+@mixin flexCenter($direction, $content: null, $align: null) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $content;
+  align-items: $align;
+}
+
+@mixin buttonStyle {
+  button {
+    background: none;
+    border-style: none;
+    cursor: pointer;
+  }
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: $primary-color;
+  font-family: $font-stack;
+}
+
+nav {
+  width: auto;
+  padding: 15px;
+  @include flexCenter(row, space-between, center);
+  color: $primary-text-color;
+
+  p {
+    font-size: $paragraph-size;
+    padding-left: 30px;
+  }
+  .icons {
+    display: flex;
+    gap: 15px;
+    @include buttonStyle;
+  }
+}
+
+article {
+  color: $primary-text-color;
+  width: auto;
+  padding: 0 45px;
+  @include flexCenter(row, space-around, center);
+
+  h1 {
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    font-size: $paragraph-size;
+  }
+  .impact-section {
+    width: 50%;
+    @include flexCenter(column);
+    padding-top: 50px;
+    gap: 25px;
+  }
+  @include buttonStyle;
+  button {
+    background-color: $quaternary-color;
+    width: 12vw;
+    padding: 20px;
+    border-radius: 35px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  img {
+    width: 25vw;
+    border-radius: 19px;
+  }
+}
+
+section {
+  width: auto;
+  height: auto;
+  padding: 60px;
+  h2 {
+    color: $primary-text-color;
+    font-size: 2em;
+    padding-bottom: 60px;
+  }
+}
+
+.product-section {
+  h2 {
+    font-weight: 300;
+  }
+  .card-section {
+    @include flexCenter(row, center, center);
+    width: auto;
+    height: auto;
+    column-gap: 100px;
+    row-gap: 80px;
+    flex-wrap: wrap;
+
+    .product-card {
+      width: 14vw;
+      height: 45vh;
+      padding: 20px;
+      border-radius: 8px;
+
+      .icon {
+        width: 100%;
+        @include flexCenter(row, flex-end);
+        padding-bottom: 12px;
+
+        svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+      .product-image {
+        width: 100%;
+        height: auto;
+        @include flexCenter(row, center, center);
+
+        img {
+          object-fit: cover;
+          width: 12vw;
+          height: 25vh;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+
+  .healthcare {
+    padding-bottom: 60px;
+    path {
+      stroke: $primary-text-color;
+    }
+    .product-card {
+      background-color: $secondary-color;
+      color: $primary-text-color;
+    }
+  }
+
+  .furniture {
+    padding-bottom: 60px;
+    path {
+      stroke: white;
+    }
+    .product-card {
+      background-color: $tertiary-color;
+      color: white;
+    }
+  }
+}
+
+.about-us {
+  padding-bottom: 60px;
+  .mission-section {
+    @include flexCenter(row, space-evenly, center);
+    .earth {
+      display: flex;
+      gap: 40px;
+      width: 30vw;
+      img {
+        object-fit: contain;
+      }
+      p {
+        color: #e86424;
+        text-align: center;
+        font-size: $paragraph-size;
+      }
+    }
+    .innovation {
+      @extend .earth;
+    }
+  }
+}
+
+.gallery {
+  margin: 60px;
+  .gallery-images {
+    @include flexCenter(row, space-between, center);
+    img{
+      width:28vw;
+      height:45vh;
+      object-fit: cover;
+      object-position: 5px 35%;
+      border-radius: 16px;
+      transition: transform 0.3s ease;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.location{
+  color:  #e86424;
+  
+  .map{
+    @include flexCenter(row, center, center);
+    padding-bottom: 50px;
+  }
+  h3, p{
+    font-size:$paragraph-size;
+  }
+}
+
+footer {
+  background-color: $quaternary-color;
+  width: auto;
+  height: auto;
+  color: white;
+  padding: 40px;
+  .social-media{
+    @include flexCenter(row, center, center);
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+}
